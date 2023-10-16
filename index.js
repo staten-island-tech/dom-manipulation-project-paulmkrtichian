@@ -3,23 +3,23 @@
 const DOMSelectors = {
     form: document.getElementById('userForm'),
     nameInput: document.getElementById('name'),
-    emailInput: document.getElementById('email'),
+    favoritecolorInput: document.getElementById('favoritecolor'),
     userDataList: document.getElementById('userData')
 };
 
-function createObject(name, email) {
-    return { name, email };
+function createObject(name, favoritecolor) {
+    return { name, favoritecolor };
 }
 
 function injectObject(obj) {
     const listItem = document.createElement('li');
-    listItem.textContent = `Name: ${obj.name}, Email: ${obj.email}`;
+    listItem.textContent = `Name: ${obj.name}, Favorite Color: ${obj.favoritecolor}`;
     DOMSelectors.userDataList.appendChild(listItem);
 }
 
 function clearFields() {
     DOMSelectors.nameInput.value = '';
-    DOMSelectors.emailInput.value = '';
+    DOMSelectors.favoritecolorInput.value = '';
 }
 
 function removeObject(item) {
@@ -29,9 +29,9 @@ function removeObject(item) {
 DOMSelectors.form.addEventListener('submit', function(e) {
     e.preventDefault();
     const name = DOMSelectors.nameInput.value;
-    const email = DOMSelectors.emailInput.value;
+    const favoritecolor = DOMSelectors.favoritecolorInput.value;
 
-    const userObject = createObject(name, email);
+    const userObject = createObject(name, favoritecolor);
     injectObject(userObject);
     clearFields();
 });
@@ -41,3 +41,10 @@ DOMSelectors.userDataList.addEventListener('click', function(e) {
         removeObject(e.target);
     }
 });
+
+function backgroundAndText(background, text){
+    background.style.backgroundColor = "red";
+    text.innerHTML = "This is now a big red box";
+}
+
+backgroundAndText(DOMSelectors.favoritecolorInput, DOMSelectors.nameInput)
