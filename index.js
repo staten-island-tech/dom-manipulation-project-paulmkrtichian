@@ -41,10 +41,11 @@ DOMSelectors.userDataList.addEventListener('click', function(e) {
         removeObject(e.target);
     }
 });
-
+/*
 function backgroundAndText(background, text){
     background.style.backgroundColor = "red";
     text.innerHTML = "This is now a big red box";
 }
 
 backgroundAndText(DOMSelectors.favoritecolorInput, DOMSelectors.nameInput)
+*/
