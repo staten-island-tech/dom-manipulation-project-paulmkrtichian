@@ -4,24 +4,24 @@ const DOMSelectors = {
     form: document.getElementById('userForm'),
     nameInput: document.getElementById('name'),
     favoritecolorInput: document.getElementById('favoritecolor'),
-    favoriteamimalInput: document.getElementById('favoriteanimal'),
+    favoritemusicInput: document.getElementById('favoritemusic'),
     userDataList: document.getElementById('userData')
 };
 
-function createObject(name, favoritecolor, favoriteamimal) {
-    return { name, favoritecolor, favoriteamimal};
+function createObject(name, favoritecolor, favoritemusic) {
+    return { name, favoritecolor, favoritemusic};
 }
 
 function injectObject(obj) {
     const listItem = document.createElement('li');
-    listItem.textContent = `Name: ${obj.name}, Favorite Color: ${obj.favoritecolor}, Favorite Animal: ${obj.favoriteamimal}`;
+    listItem.textContent = `Name: ${obj.name}, Favorite Color: ${obj.favoritecolor}, Favorite SONG: ${obj.favoritemusic}`;
     DOMSelectors.userDataList.appendChild(listItem);
 }
 
 function clearFields() {
     DOMSelectors.nameInput.value = '';
     DOMSelectors.favoritecolorInput.value = ''
-    DOMSelectors.favoriteamimalInput.value;
+    DOMSelectors.favoritemusicInput.value = '';
 }
 
 function removeObject(item) {
@@ -32,10 +32,10 @@ DOMSelectors.form.addEventListener('submit', function(e) {
     e.preventDefault();
     const name = DOMSelectors.nameInput.value;
     const favoritecolor = DOMSelectors.favoritecolorInput.value;
-    const favoriteamimal = DOMSelectors.favoriteamimalInput.value
+    const favoritemusic = DOMSelectors.favoritemusicInput.value;
 
 
-    const userObject = createObject(name, favoritecolor, favoriteamimal);
+    const userObject = createObject(name, favoritecolor, favoritemusic);
     injectObject(userObject);
     clearFields();
 });
