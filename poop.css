@@ -1,8 +1,17 @@
+<form id="userForm">
+  <label for="Name">Enter Your full name.</label>
+  <input type="text" id="name" placeholder="Name">
 
+  <label for="favorite Color">Enter Your Favorite Color</label>
+  <input type="text" id="favoritecolor" placeholder="Favorite Color">
+  
+  <label for="IMAGE URL">Enter The URL</label>
+  <input type="text" id="favoritemusic" placeholder="Favorite MUSIC">
+  <button type="submit">Submit</button>
+</form>
+<ul id="userData"></ul>
 
-
-
-const DOMSelectors = {
+  const DOMSelectors = {
     form: document.getElementById('userForm'),
     nameInput: document.getElementById('name'),
     favoritecolorInput: document.getElementById('favoritecolor'),
@@ -16,12 +25,7 @@ function createObject(name, favoritecolor, favoritemusic) {
 
 function injectObject(obj) {
     const listItem = document.createElement('li');
-    listItem.textContent = `Name: ${obj.name}, Favorite Color: ${obj.favoritecolor}`;
-    
-    // Add a function to convert the link to an image
-    const favoritemusicImg = convertLinkToImage(obj.favoritemusic);
-    listItem.appendChild(favoritemusicImg);
-    
+    listItem.textContent = `Name: ${obj.name}, Favorite Color: ${obj.favoritecolor}, Favorite SONG: ${obj.favoritemusic}`;
     DOMSelectors.userDataList.appendChild(listItem);
 }
 
@@ -34,21 +38,20 @@ function clearFields() {
 function removeObject(item) {
     item.parentNode.removeChild(item);
 }
-
 function convertLinkToImage(url) {
     const img = document.createElement('img');
     img.src = url;
     img.alt = 'Favorite Song Image';
-    img.style.minWidth = '1000px'; // Set a maximum width for the image if needed
+    img.style.maxWidth = '100px'; // Set a maximum width for the image if needed
     
     return img;
 }
-
 DOMSelectors.form.addEventListener('submit', function(e) {
     e.preventDefault();
     const name = DOMSelectors.nameInput.value;
     const favoritecolor = DOMSelectors.favoritecolorInput.value;
     const favoritemusic = DOMSelectors.favoritemusicInput.value;
+
 
     const userObject = createObject(name, favoritecolor, favoritemusic);
     injectObject(userObject);
@@ -60,26 +63,3 @@ DOMSelectors.userDataList.addEventListener('click', function(e) {
         removeObject(e.target);
     }
 });
-/*
-function backgroundAndText(background, text){
-    background.style.backgroundColor = "red";
-    text.innerHTML = "This is now a big red box";
-}
-
-backgroundAndText(DOMSelectors.favoritecolorInput, DOMSelectors.nameInput)
-*/
-/* function makeAlbum(){
-    //return an object
-}
-/*function addCard(Album) {
-DOMSelectors.form.addEventListener("submit", function (event){
-    event.preventDefault();
-}
-)};
-*/
-//afterbegin
-
-/*<div class="gallery"></div>
-<div class="card"></div class="card-title">Midnights</div><div>
-
-</div> (HTML) */
