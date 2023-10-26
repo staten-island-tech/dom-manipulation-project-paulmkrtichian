@@ -13,7 +13,7 @@ function createObject(name, favoritecolor, favoritemusic) {
 function injectObject(obj) {
     const listItem = document.createElement('li');
     listItem.textContent = `Name: ${obj.name}, Favorite Color: ${obj.favoritecolor}, Favorite SONG: ${obj.favoritemusic}`;
-    DOMSelectors.userDataList.appendChild(listItem);
+    DOMSelectors.userDataList.innerHTML(listItem);
 }
 
 function clearFields() {
