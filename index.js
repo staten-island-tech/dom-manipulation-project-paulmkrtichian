@@ -1,7 +1,3 @@
-
-
-
-
 const DOMSelectors = {
     form: document.getElementById('userForm'),
     nameInput: document.getElementById('name'),
@@ -16,12 +12,7 @@ function createObject(name, favoritecolor, favoritemusic) {
 
 function injectObject(obj) {
     const listItem = document.createElement('li');
-    listItem.textContent = `Name: ${obj.name}, Favorite Color: ${obj.favoritecolor}`;
-    
-    // Add a function to convert the link to an image
-    const favoritemusicImg = convertLinkToImage(obj.favoritemusic);
-    listItem.appendChild(favoritemusicImg);
-    
+    listItem.textContent = `Name: ${obj.name}, Favorite Color: ${obj.favoritecolor}, Favorite SONG: ${obj.favoritemusic}`;
     DOMSelectors.userDataList.appendChild(listItem);
 }
 
@@ -35,31 +26,27 @@ function removeObject(item) {
     item.parentNode.removeChild(item);
 }
 
-function convertLinkToImage(url) {
-    const img = document.createElement('img');
-    img.src = url;
-    img.alt = 'Favorite Song Image';
-    img.style.minWidth = '1000px'; // Set a maximum width for the image if needed
-    
-    return img;
-}
-
-DOMSelectors.form.addEventListener('submit', function(e) {
-    e.preventDefault();
+DOMSelectors.form.addEventListener('submit', function(haha) {
+    haha.preventDefault();
     const name = DOMSelectors.nameInput.value;
     const favoritecolor = DOMSelectors.favoritecolorInput.value;
     const favoritemusic = DOMSelectors.favoritemusicInput.value;
+
 
     const userObject = createObject(name, favoritecolor, favoritemusic);
     injectObject(userObject);
     clearFields();
 });
 
-DOMSelectors.userDataList.addEventListener('click', function(e) {
-    if (e.target && e.target.nodeName == 'LI') {
+DOMSelectors.userDataList.addEventListener('click', function(haha) {
+    if (haha.target && e.target.nodeName == 'LI') {
         removeObject(e.target);
     }
 });
+
+
+
+
 /*
 function backgroundAndText(background, text){
     background.style.backgroundColor = "red";
