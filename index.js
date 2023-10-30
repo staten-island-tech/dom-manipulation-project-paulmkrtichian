@@ -3,7 +3,7 @@ const DOMSelectors = {
     nameInput: document.getElementById('name'),
     favoritecolorInput: document.getElementById('favoritecolor'),
     favoritemusicInput: document.getElementById('favoritemusic'),
-    userDataList: document.getElementById('userData')
+    userDataList: document.getElementById('userData'),
 };
 
 function createObject(name, favoritecolor, favoritemusic) {
@@ -13,7 +13,7 @@ function createObject(name, favoritecolor, favoritemusic) {
 function injectObject(obj) {
     const listItem = document.createElement('li');
     listItem.textContent = `Name: ${obj.name}, Favorite Color: ${obj.favoritecolor}, Favorite SONG: ${obj.favoritemusic}`;
-    DOMSelectors.userDataList.innerHTML(listItem);
+    DOMSelectors.userDataList.ap(listItem);
 }
 
 function clearFields() {
@@ -39,8 +39,8 @@ DOMSelectors.form.addEventListener('submit', function(haha) {
 });
 
 DOMSelectors.userDataList.addEventListener('click', function(haha) {
-    if (haha.target && e.target.nodeName == 'LI') {
-        removeObject(e.target);
+    if (haha.target && haha.target.nodeName == 'LI') {
+        removeObject(haha.target);
     }
 });
 

@@ -3,21 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css"
+  <link rel="stylesheet" href="style.css">
     <title>Form Data Manipulation</title>
 </head>
+<div class="musiccontainer">
 <body>
     <h1> Your Information</h1>
     <form id="userForm">
-        <input type="text" id="name" placeholder="Enter name">
-        <input type="text" id="favoritecolor" placeholder="Enter favorite color">
-        <input type="text" id="favoritemusic" placeholder="Enter favorite music link">
+        
+        <label for="Name">Enter Your full name.</label>
+        <input type="text" id="name" placeholder="Name">
+      
+        <label for="favorite Color">Enter Your Favorite Color</label>
+        <input type="text" id="favoritecolor" placeholder="Favorite Color">
+        
+        <label for="IMAGE URL">Enter The URL</label>
+        <input type="text" id="favoritemusic" placeholder="Favorite MUSIC">
         <button type="submit">Submit</button>
 
         
     </form>
-    
-    <ul id="userData"></ul>
+</div>
+<ul id="userData"></ul>
    
     <script src="index.js"></script>
 </body>

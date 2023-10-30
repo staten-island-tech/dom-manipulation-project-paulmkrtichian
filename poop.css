@@ -11,3 +11,8 @@
 </form>
 <ul id="userData"></ul>
 
+function createCard(){
+  DOMSelectors.gallery.insertAdjacentHTML('beforened', <div class-card<h2> ${DOMSelectros.name.value} : ${DOMSelectors.favoritecolor.value} : </h2><img class="imginput" src=${DOMSelectors.favoritemusic.value}/</div>)
+
+}
+function createCard() 
