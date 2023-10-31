@@ -6,8 +6,7 @@ body {
   flex-direction: column;
   height: 100vh;
 }
-  #userData {
-    width: 1075px;
-   height: 1211px;
-   border: 10px;
-  }
+musiccontainer{
+  background-color: white;
+  text-align: center;
+}

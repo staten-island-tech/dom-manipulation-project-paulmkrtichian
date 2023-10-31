@@ -16,3 +16,20 @@ function createCard(){
 
 }
 function createCard() 
+
+function injectObject(obj) {
+  const listItem = document.createElement('li');
+  listItem.textContent = `Name: ${obj.name}, Favorite Color: ${obj.favoritecolor}, Favorite SONG: ${obj.favoritemusic}`;
+  DOMSelectors.userDataList.ap(listItem);
+}
+function removeObject(item) {
+  item.parentNode.removeChild(item);
+}
+
+
+
+DOMSelectors.userDataList.addEventListener('click', function(haha) {
+  if (haha.target && haha.target.nodeName == 'LI') {
+      removeObject(haha.target);
+  }
+});

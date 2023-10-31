@@ -1,20 +1,56 @@
 const DOMSelectors = {
-    form: document.getElementById('userForm'),
     nameInput: document.getElementById('name'),
     favoritecolorInput: document.getElementById('favoritecolor'),
     favoritemusicInput: document.getElementById('favoritemusic'),
-    userDataList: document.getElementById('userData'),
+    submitButton: document.getElementById('submit'),
+    clearButton: document.getElementById('clear'),
+    htmlcards: document.querySelector('.htmlcards'),
+    
 };
 
-function createObject(name, favoritecolor, favoritemusic) {
-    return { name, favoritecolor, favoritemusic};
+DOMSelectors.submitButton.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const name = DOMSelectors.nameInput.value;
+    const favoritecolor = DOMSelectors.favoritecolorInput.value;
+    const favoritemusicurl = DOMSelectors.favoritemusicInput.value;
+
+
+    if (name && favoritecolor && favoritemusicurl) {
+        createhtmlcard(name, favoritecolor, favoritemusicurl);
+        clearFields();
+    }
+    
+});
+
+DOMSelectors.clearButton.addEventListener('click', () => {
+    clearFields();
+});
+
+
+function createObject(name, favoritecolor, favoritemusicurl) {
+    const htmlcard = document.createElement('div');
+    htmlcard.classicList.add('htmlcard');
+
+    const favoritemusic = document.createElement('img');
+    favoritemusic.src = favoritemusicurl;
+
+    const htmlcontent = documnet.createElement('div');
+    htmlcontent.classicList.add('html-card-content');
+
+    const nameinfo = `<p>Name: ${name}</p>`
+    const favoritecolorinfo = `<p>Favorite Color: ${favoritecolor}`;
+    
+    htmlcontent.insertAdjacentHTML('beforeend', `<button class=remove> Remove SInger</button> ${nameinfo}`);
+    htmlcontent.insertAdjacentHTML('beforend', favoritecolorinfo);
+
+    htmlcard.appendChild(favoritemusic);
+    htmlcard.appendChild(htmlcontent);
+
+    DOMSelectors.htmlcards.appendChild(htmlcard);
 }
 
-function injectObject(obj) {
-    const listItem = document.createElement('li');
-    listItem.textContent = `Name: ${obj.name}, Favorite Color: ${obj.favoritecolor}, Favorite SONG: ${obj.favoritemusic}`;
-    DOMSelectors.userDataList.ap(listItem);
-}
+
 
 function clearFields() {
     DOMSelectors.nameInput.value = '';
@@ -22,27 +58,6 @@ function clearFields() {
     DOMSelectors.favoritemusicInput.value = '';
 }
 
-function removeObject(item) {
-    item.parentNode.removeChild(item);
-}
-
-DOMSelectors.form.addEventListener('submit', function(haha) {
-    haha.preventDefault();
-    const name = DOMSelectors.nameInput.value;
-    const favoritecolor = DOMSelectors.favoritecolorInput.value;
-    const favoritemusic = DOMSelectors.favoritemusicInput.value;
-
-
-    const userObject = createObject(name, favoritecolor, favoritemusic);
-    injectObject(userObject);
-    clearFields();
-});
-
-DOMSelectors.userDataList.addEventListener('click', function(haha) {
-    if (haha.target && haha.target.nodeName == 'LI') {
-        removeObject(haha.target);
-    }
-});
 
 
 

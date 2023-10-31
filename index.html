@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,30 +8,34 @@
   <link rel="stylesheet" href="style.css">
     <title>Form Data Manipulation</title>
 </head>
-<div class="musiccontainer">
 <body>
-    <h1> Your Information</h1>
+    <div class="musiccontainer"></div>
+    <div class="header">
+        <h1>Create Your singer</h1>
+    </div>
+    
+    <div class="forminput">
     <form id="userForm">
-        
+        <div class="firstandlast">
         <label for="Name">Enter Your full name.</label>
-        <input type="text" id="name" placeholder="Name">
+        <input type="text" id="name">
+    </div>
+         <div class="colorfavorite">
+        <label for="favoritecolor">Enter Your Favorite Color</label>
+        <input type="text" id="favoritecolor">
+    </div>
+    <div class="colorfavorite">
+        <label for="favoritemusic">Enter The URL</label>
+        <input type="text" id="favoritemusic">
       
-        <label for="favorite Color">Enter Your Favorite Color</label>
-        <input type="text" id="favoritecolor" placeholder="Favorite Color">
-        
-        <label for="IMAGE URL">Enter The URL</label>
-        <input type="text" id="favoritemusic" placeholder="Favorite MUSIC">
-        <button type="submit">Submit</button>
-
-        
+    </div>
+        <button id="submit">Submit</button>
+        <button id="clear">Clear </button>
     </form>
 </div>
-<ul id="userData"></ul>
-   
+
+   <div class="htmlcards"></div>
     <script src="index.js"></script>
 </body>
 </html>
 
-
-
-</div>
