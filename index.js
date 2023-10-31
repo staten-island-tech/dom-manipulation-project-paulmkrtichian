@@ -8,7 +8,7 @@ const DOMSelectors = {
     
 };
 
-DOMSelectors.submitButton.addEventListener('submit', (event) => {
+DOMSelectors.submitButton.addEventListener('click', (event) => {
     event.preventDefault();
 
     const name = DOMSelectors.nameInput.value;
@@ -18,17 +18,17 @@ DOMSelectors.submitButton.addEventListener('submit', (event) => {
 
     if (name && favoritecolor && favoritemusicurl) {
         createhtmlcard(name, favoritecolor, favoritemusicurl);
-        clearFields();
+       clearFields();
     }
-    
+   
 });
 
 DOMSelectors.clearButton.addEventListener('click', () => {
-    clearFields();
+    clearInputFields();
 });
 
 
-function createObject(name, favoritecolor, favoritemusicurl) {
+function createhtmlcard(name, favoritecolor, favoritemusicurl) {
     const htmlcard = document.createElement('div');
     htmlcard.classicList.add('htmlcard');
 
@@ -44,15 +44,23 @@ function createObject(name, favoritecolor, favoritemusicurl) {
     htmlcontent.insertAdjacentHTML('beforeend', `<button class=remove> Remove SInger</button> ${nameinfo}`);
     htmlcontent.insertAdjacentHTML('beforend', favoritecolorinfo);
 
+    const removebutton = document.createElement('button');
+    removebutton.classList.add('remove');
+    removebutton.textContent = 'Remove Singer';
+    removebutton.addEventListener('click', () => {
+        htmlcard.remove();
+    })
+
     htmlcard.appendChild(favoritemusic);
     htmlcard.appendChild(htmlcontent);
+    htmlcard.appendChild(removebutton);
 
     DOMSelectors.htmlcards.appendChild(htmlcard);
 }
 
 
 
-function clearFields() {
+function clearInputFields() {
     DOMSelectors.nameInput.value = '';
     DOMSelectors.favoritecolorInput.value = ''
     DOMSelectors.favoritemusicInput.value = '';
