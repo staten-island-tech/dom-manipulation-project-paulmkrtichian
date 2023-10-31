@@ -36,7 +36,7 @@ function createObject(name, favoritecolor, favoritemusicurl) {
     favoritemusic.src = favoritemusicurl;
 
     const htmlcontent = documnet.createElement('div');
-    htmlcontent.classicList.add('html-card-content');
+    htmlcontent.classicList.add('htmlcard-content');
 
     const nameinfo = `<p>Name: ${name}</p>`
     const favoritecolorinfo = `<p>Favorite Color: ${favoritecolor}`;
