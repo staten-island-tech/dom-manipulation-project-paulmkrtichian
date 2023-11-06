@@ -1,10 +1,10 @@
 const DOMSelectors = {
     nameInput: document.getElementById('name'),
-    favoritecolorInput: document.getElementById('favoritecolor'),
-    favoritemusicInput: document.getElementById('favoritemusic'),
+    modelInput: document.getElementById('model'),
+    imageInput: document.getElementById('image'),
     submitButton: document.getElementById('submit'),
     clearButton: document.getElementById('clear'),
-    htmlcards: document.querySelector('.htmlcards'),
+    htmlCards: document.querySelector('.html-cards'),
     
 };
 
@@ -12,13 +12,13 @@ DOMSelectors.submitButton.addEventListener('click', (event) => {
     event.preventDefault();
 
     const name = DOMSelectors.nameInput.value;
-    const favoritecolor = DOMSelectors.favoritecolorInput.value;
-    const favoritemusicurl = DOMSelectors.favoritemusicInput.value;
+    const model = DOMSelectors.modelInput.value;
+    const imageUrl = DOMSelectors.imageInput.value;
 
 
-    if (name && favoritecolor && favoritemusicurl) {
-        createhtmlcard(name, favoritecolor, favoritemusicurl);
-       clearFields();
+    if (name && model && imageUrl) {
+        createhtmlcard(name, model, imageUrl);
+       clearInputFields();
     }
    
 });
@@ -28,42 +28,42 @@ DOMSelectors.clearButton.addEventListener('click', () => {
 });
 
 
-function createhtmlcard(name, favoritecolor, favoritemusicurl) {
-    const htmlcard = document.createElement('div');
-    htmlcard.classicList.add('htmlcard');
+function createhtmlcard(name, model, imageUrl) {
+    const htmlCard = document.createElement('div');
+    htmlCard.classList.add('html-card');
 
-    const favoritemusic = document.createElement('img');
-    favoritemusic.src = favoritemusicurl;
+    const image = document.createElement('img');
+    image.src = imageUrl;
 
-    const htmlcontent = documnet.createElement('div');
-    htmlcontent.classicList.add('htmlcard-content');
+    const htmlcontent = document.createElement('div');
+    htmlcontent.classList.add('html-card-content');
 
-    const nameinfo = `<p>Name: ${name}</p>`
-    const favoritecolorinfo = `<p>Favorite Color: ${favoritecolor}`;
+    const nameinfo = `<p>Name: ${name}</p>`;
+    const modelinfo = `<p>Favorite Color: ${model}`;
     
-    htmlcontent.insertAdjacentHTML('beforeend', `<button class=remove> Remove SInger</button> ${nameinfo}`);
-    htmlcontent.insertAdjacentHTML('beforend', favoritecolorinfo);
+    htmlcontent.insertAdjacentHTML('beforeend', nameinfo);
+    htmlcontent.insertAdjacentHTML('beforeend', modelinfo);
 
     const removebutton = document.createElement('button');
     removebutton.classList.add('remove');
     removebutton.textContent = 'Remove Singer';
     removebutton.addEventListener('click', () => {
-        htmlcard.remove();
+        htmlCard.remove();
     })
 
-    htmlcard.appendChild(favoritemusic);
-    htmlcard.appendChild(htmlcontent);
-    htmlcard.appendChild(removebutton);
+    htmlCard.appendChild(image);
+    htmlCard.appendChild(htmlcontent);
+    htmlCard.appendChild(removebutton);
 
-    DOMSelectors.htmlcards.appendChild(htmlcard);
+    DOMSelectors.htmlCards.appendChild(htmlCard);
 }
 
 
 
 function clearInputFields() {
     DOMSelectors.nameInput.value = '';
-    DOMSelectors.favoritecolorInput.value = ''
-    DOMSelectors.favoritemusicInput.value = '';
+    DOMSelectors.modelInput.value = ''
+    DOMSelectors.imageInput.value = '';
 }
 
 
