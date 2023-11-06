@@ -8,4 +8,27 @@ body {
 .header, .inputform{
   background-color: white;
   text-align: center;
+  box-shadow: 10px;
+}
+.inputform {
+  display: flex;
+  align-items: center;
+  font-size: 30px;
+  justify-content: space-around;
+}
+
+.form-group {
+  margin-bottom: 10px;
+  display: block;
+}
+
+.HtmlCard {
+  border: 3px solid black;
+  box-shadow: 1px;
+  text-align: center;
+  padding: 10px;
+  margin: 10px;
+  width: 400px;
+  max-width: 100%;
+  background-color: red;
 }

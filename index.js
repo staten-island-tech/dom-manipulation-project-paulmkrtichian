@@ -1,10 +1,10 @@
 const DOMSelectors = {
     nameInput: document.getElementById('name'),
-    modelInput: document.getElementById('model'),
+    singerInput: document.getElementById('singer'),
     imageInput: document.getElementById('image'),
     submitButton: document.getElementById('submit'),
     clearButton: document.getElementById('clear'),
-    htmlCards: document.querySelector('.html-cards'),
+    HtmlCard: document.querySelector('.HtmlCard'),
     
 };
 
@@ -12,12 +12,12 @@ DOMSelectors.submitButton.addEventListener('click', (event) => {
     event.preventDefault();
 
     const name = DOMSelectors.nameInput.value;
-    const model = DOMSelectors.modelInput.value;
+    const singer = DOMSelectors.singerInput.value;
     const imageUrl = DOMSelectors.imageInput.value;
 
 
-    if (name && model && imageUrl) {
-        createhtmlcard(name, model, imageUrl);
+    if (name && singer && imageUrl) {
+        createhtmlcard(name, singer, imageUrl);
        clearInputFields();
     }
    
@@ -28,41 +28,41 @@ DOMSelectors.clearButton.addEventListener('click', () => {
 });
 
 
-function createhtmlcard(name, model, imageUrl) {
-    const htmlCard = document.createElement('div');
-    htmlCard.classList.add('html-card');
+function createhtmlcard(name, singer, imageUrl) {
+    const HtmlCard = document.createElement('div');
+    HtmlCard.classList.add('html-card');
 
     const image = document.createElement('img');
     image.src = imageUrl;
 
-    const htmlcontent = document.createElement('div');
-    htmlcontent.classList.add('html-card-content');
+    const Htmlcontent = document.createElement('div');
+    Htmlcontent.classList.add('html-card-content');
 
     const nameinfo = `<p>Name: ${name}</p>`;
-    const modelinfo = `<p>Favorite Color: ${model}`;
+    const singerinfo = `<p>Favorite Color: ${singer}`;
     
-    htmlcontent.insertAdjacentHTML('beforeend', nameinfo);
-    htmlcontent.insertAdjacentHTML('beforeend', modelinfo);
+    Htmlcontent.insertAdjacentHTML('beforeend', nameinfo);
+    Htmlcontent.insertAdjacentHTML('beforeend', singerinfo);
 
     const removebutton = document.createElement('button');
     removebutton.classList.add('remove');
     removebutton.textContent = 'Remove Singer';
     removebutton.addEventListener('click', () => {
-        htmlCard.remove();
+        HtmlCard.remove();
     })
 
-    htmlCard.appendChild(image);
-    htmlCard.appendChild(htmlcontent);
-    htmlCard.appendChild(removebutton);
+    HtmlCard.appendChild(image);
+    HtmlCard.appendChild(Htmlcontent);
+    HtmlCard.appendChild(removebutton);
 
-    DOMSelectors.htmlCards.appendChild(htmlCard);
+    DOMSelectors.HtmlCard.appendChild(HtmlCard);
 }
 
 
 
 function clearInputFields() {
     DOMSelectors.nameInput.value = '';
-    DOMSelectors.modelInput.value = ''
+    DOMSelectors.singerInput.value = ''
     DOMSelectors.imageInput.value = '';
 }
 
