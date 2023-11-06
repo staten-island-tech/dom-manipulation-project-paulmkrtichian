@@ -7,27 +7,6 @@ const DOMSelectors = {
     HtmlCard: document.querySelector('.HtmlCard'),
     
 };
-
-DOMSelectors.submitButton.addEventListener('click', (event) => {
-    event.preventDefault();
-
-    const name = DOMSelectors.nameInput.value;
-    const singer = DOMSelectors.singerInput.value;
-    const imageUrl = DOMSelectors.imageInput.value;
-
-
-    if (name && singer && imageUrl) {
-        createhtmlcard(name, singer, imageUrl);
-       clearInputFields();
-    }
-   
-});
-
-DOMSelectors.clearButton.addEventListener('click', () => {
-    clearInputFields();
-});
-
-
 function createhtmlcard(name, singer, imageUrl) {
     const HtmlCard = document.createElement('div');
     HtmlCard.classList.add('html-card');
@@ -66,6 +45,24 @@ function clearInputFields() {
     DOMSelectors.imageInput.value = '';
 }
 
+DOMSelectors.submitButton.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    const name = DOMSelectors.nameInput.value;
+    const singer = DOMSelectors.singerInput.value;
+    const imageUrl = DOMSelectors.imageInput.value;
+
+
+    if (name && singer && imageUrl) {
+        createhtmlcard(name, singer, imageUrl);
+       clearInputFields();
+    }
+   
+});
+
+DOMSelectors.clearButton.addEventListener('click', () => {
+    clearInputFields();
+});
 
 
 
