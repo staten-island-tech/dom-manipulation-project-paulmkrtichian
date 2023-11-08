@@ -1,60 +1,23 @@
 const DOMSelectors = {
-    nameInput: document.getElementById('name'),
-    singerInput: document.getElementById('singer'),
+    pokemonInput: document.getElementById('pokemon'),
+    CPInput: document.getElementById('CP'),
     imageInput: document.getElementById('image'),
     submitButton: document.getElementById('submit'),
     clearButton: document.getElementById('clear'),
-    HtmlCard: document.querySelector('.HtmlCard'),
+    PokemonCard: document.querySelector('.PokemonCard'),
     
 };
-function createhtmlcard(name, singer, imageUrl) {
-    const HtmlCard = document.createElement('div');
-    HtmlCard.classList.add('html-card');
-
-    const image = document.createElement('img');
-    image.src = imageUrl;
-
-    const Htmlcontent = document.createElement('div');
-    Htmlcontent.classList.add('html-card-content');
-
-    const nameinfo = `<p>Name: ${name}</p>`;
-    const singerinfo = `<p>Favorite Color: ${singer}`;
-    
-    Htmlcontent.insertAdjacentHTML('beforeend', nameinfo);
-    Htmlcontent.insertAdjacentHTML('beforeend', singerinfo);
-
-    const removebutton = document.createElement('button');
-    removebutton.classList.add('remove');
-    removebutton.textContent = 'Remove Singer';
-    removebutton.addEventListener('click', () => {
-        HtmlCard.remove();
-    })
-
-    HtmlCard.appendChild(image);
-    HtmlCard.appendChild(Htmlcontent);
-    HtmlCard.appendChild(removebutton);
-
-    DOMSelectors.HtmlCard.appendChild(HtmlCard);
-}
-
-
-
-function clearInputFields() {
-    DOMSelectors.nameInput.value = '';
-    DOMSelectors.singerInput.value = ''
-    DOMSelectors.imageInput.value = '';
-}
 
 DOMSelectors.submitButton.addEventListener('click', (event) => {
     event.preventDefault();
 
-    const name = DOMSelectors.nameInput.value;
-    const singer = DOMSelectors.singerInput.value;
-    const imageUrl = DOMSelectors.imageInput.value;
+    const pokemon = DOMSelectors.pokemonInput.value;
+    const CP = DOMSelectors.CPInput.value;
+    const urlimage = DOMSelectors.imageInput.value;
 
 
-    if (name && singer && imageUrl) {
-        createhtmlcard(name, singer, imageUrl);
+    if (pokemon && CP && urlimage) {
+        createhtmlcard(pokemon, CP, urlimage);
        clearInputFields();
     }
    
@@ -63,6 +26,46 @@ DOMSelectors.submitButton.addEventListener('click', (event) => {
 DOMSelectors.clearButton.addEventListener('click', () => {
     clearInputFields();
 });
+
+
+function createhtmlcard(pokemon, CP, urlimage) {
+    const PokemonCard = document.createElement('div');
+    PokemonCard.classList.add('html-card');
+
+    const image = document.createElement('img');
+    image.src = urlimage;
+
+    const poke = document.createElement('div');
+    poke.classList.add('html-card-content');
+
+    const pokemoninfo = `<p>Name: ${pokemon}</p>`;
+    const CPinfo = `<p>CP: ${CP}`;
+    
+    poke.insertAdjacentHTML('beforeend', pokemoninfo);
+    poke.insertAdjacentHTML('beforeend', CPinfo);
+
+    const removebutton = document.createElement('button');
+    removebutton.classList.add('remove');
+    removebutton.textContent = 'Remove Pokemon';
+    removebutton.addEventListener('click', () => {
+        PokemonCard.remove();
+    })
+
+    PokemonCard.appendChild(image);
+    PokemonCard.appendChild(poke);
+    PokemonCard.appendChild(removebutton);
+
+    DOMSelectors.PokemonCard.appendChild(PokemonCard);
+}
+
+
+
+function clearInputFields() {
+    DOMSelectors.pokemonInput.value = '';
+    DOMSelectors.CPInput.value = ''
+    DOMSelectors.imageInput.value = '';
+}
+
 
 
 
