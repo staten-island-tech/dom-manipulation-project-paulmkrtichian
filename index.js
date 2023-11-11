@@ -29,19 +29,17 @@ function createhtmlcard(pokemon, CP, urlimage) {
     const CPinfo = `<p>CP: ${CP}`;
     poke.insertAdjacentHTML('beforeend', pokemoninfo);
     poke.insertAdjacentHTML('beforeend', CPinfo);
-    
-    PokemonCard.append(image);
-    PokemonCard.append(poke);
-    PokemonCard.append(removebutton);
-    DOMSelectors.PokemonCard.append(PokemonCard);
-}
-function remove() {
     const removebutton = document.createElement('button');
     removebutton.textContent = 'Remove';
     removebutton.addEventListener('click', () => {
         PokemonCard.remove();
     })
+    PokemonCard.append(image);
+    PokemonCard.append(poke);
+    PokemonCard.append(removebutton);
+    DOMSelectors.PokemonCard.append(PokemonCard);
 }
+
 
 
 function clearInputFields() {
